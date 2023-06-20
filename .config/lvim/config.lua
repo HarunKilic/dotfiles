@@ -40,5 +40,5 @@ lvim.plugins = {
   {"voldikss/vim-floaterm"},
   {"lunarvim/colorschemes"},
   {"folke/tokyonight.nvim"},
-  {"morthetz/gruvbox"}
+  {"morhetz/gruvbox"}
 }
