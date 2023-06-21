@@ -15,6 +15,13 @@ git clone https://github.com/HarunKilic/dotfiles.git
 mklink /D "%USERPROFILE%/AppData/Roaming/alacritty" "%USERPROFILE%/Documents/Github/dotfiles/.config/alacritty"
 ```
 
+##### AstroNvim
+
+```bash
+# Windows
+mklink /D "%USERPROFILE%/AppData/Local/nvim/lua/user" "%USERPROFILE%/Documents/Github/dotfiles/.config/nvim/lua/user"
+```
+
 ##### Lvim
 
 ```bash
