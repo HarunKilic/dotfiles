@@ -34,4 +34,9 @@ mklink /D "%USERPROFILE%/AppData/local/lvim" "%USERPROFILE%/Documents/Github/dot
 ```bash
 # Windows
 mklink /D "%USERPROFILE%/AppData/local/nvim" "%USERPROFILE%/Documents/Github/dotfiles/.config/nvim"
+
+# Linux
+ln -s ~/Documents/GitHub/dotfiles/.config/nvim ~/.config/nvim
+
 ```
+
