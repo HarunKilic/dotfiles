@@ -28,3 +28,10 @@ mklink /D "%USERPROFILE%/AppData/Local/nvim/lua/user" "%USERPROFILE%/Documents/G
 # Windows
 mklink /D "%USERPROFILE%/AppData/local/lvim" "%USERPROFILE%/Documents/Github/dotfiles/.config/lvim"
 ```
+
+##### Nvim
+
+```bash
+# Windows
+mklink /D "%USERPROFILE%/AppData/local/nvim" "%USERPROFILE%/Documents/Github/dotfiles/.config/nvim"
+```
