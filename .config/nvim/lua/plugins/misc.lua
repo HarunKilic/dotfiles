@@ -1,4 +1,4 @@
-return {
+ return {
     -- Comment with haste
     {
         "numToStr/Comment.nvim",

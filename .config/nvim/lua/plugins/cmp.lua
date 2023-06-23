@@ -2,13 +2,13 @@ return {
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-nvim-lua",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"L3MON4D3/LuaSnip",
-			"saadparwaiz1/cmp_luasnip",
-			"rafamadriz/friendly-snippets",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lua",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "L3MON4D3/LuaSnip",
+            "saadparwaiz1/cmp_luasnip",
+            "rafamadriz/friendly-snippets",
         },
         config = function()
             local cmp = require("cmp")
@@ -17,32 +17,32 @@ return {
             require("luasnip/loaders/from_vscode").lazy_load()
 
             local kind_icons = {
-				Text = "",
-				Method = "m",
-				Function = "",
-				Constructor = "",
-				Field = "",
-				Variable = "",
-				Class = "",
-				Interface = "",
-				Module = "",
-				Property = "",
-				Unit = "",
-				Value = "",
-				Enum = "",
-				Keyword = "",
-				Snippet = "",
-				Color = "",
-				File = "",
-				Reference = "",
-				Folder = "",
-				EnumMember = "",
-				Constant = "",
-				Struct = "",
-				Event = "",
-				Operator = "",
-				TypeParameter = "",
-			}
+                Text = "",
+                Method = "m",
+                Function = "",
+                Constructor = "",
+                Field = "",
+                Variable = "",
+                Class = "",
+                Interface = "",
+                Module = "",
+                Property = "",
+                Unit = "",
+                Value = "",
+                Enum = "",
+                Keyword = "",
+                Snippet = "",
+                Color = "",
+                File = "",
+                Reference = "",
+                Folder = "",
+                EnumMember = "",
+                Constant = "",
+                Struct = "",
+                Event = "",
+                Operator = "",
+                TypeParameter = "",
+            }
 
             cmp.setup({
                 snippet = {
@@ -57,7 +57,7 @@ return {
                     ["<C-f>"] = cmp.mapping.scroll_docs(4),
                     ["<CR>"] = cmp.mapping.confirm({
                         behavior = cmp.ConfirmBehavior.Replace,
-                        select = false
+                        select = false,
                     }),
                     ["<Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
@@ -67,19 +67,19 @@ return {
                         else
                             fallback()
                         end
-                    end  ,{"i", "s"}),
+                    end, { "i", "s" }),
                     ["<S-Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
-							cmp.select_prev_item()
-						elseif luasnip.jumpable(-1) then
-							luasnip.jump(-1)
-						else
-							fallback()
-						end
-                    end,  {"i", "s"}),
+                            cmp.select_prev_item()
+                        elseif luasnip.jumpable(-1) then
+                            luasnip.jump(-1)
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
                 }),
                 formatting = {
-                    fields = {"kind", "abbr", "menu"},
+                    fields = { "kind", "abbr", "menu" },
                     format = function(entry, vim_item)
                         -- Kind icons
                         vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
@@ -93,12 +93,12 @@ return {
                     end,
                 },
                 sources = {
-                    {name = "nvim_lsp"},
-                    {name = "luasnip"},
-                    {name = "buffer"},
-                    {name = "path"}
-                }
+                    { name = "nvim_lsp" },
+                    { name = "luasnip" },
+                    { name = "buffer" },
+                    { name = "path" },
+                },
             })
-        end
-    }
+        end,
+    },
 }

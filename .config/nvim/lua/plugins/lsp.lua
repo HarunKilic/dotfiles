@@ -4,7 +4,7 @@ return {
 		dependencies = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
-			"folke/neodev.nvim",
+			-- "folke/neodev.nvim",
 			"RRethy/vim-illuminate",
 			"hrsh7th/cmp-nvim-lsp",
 		},
@@ -24,7 +24,7 @@ return {
 			require("helpers.keys").map("n", "<leader>M", "<cmd>Mason<cr>", "Show Mason")
 
 			-- Neodev setup before LSP config
-			require("neodev").setup()
+			-- require("neodev").setup()
 
 			-- Set up cool signs for diagnostics
 			local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
