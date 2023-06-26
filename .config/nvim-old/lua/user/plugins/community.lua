@@ -10,4 +10,5 @@ return {
   { import = "astrocommunity.pack.typescript",        enabled = true },
   { import = "astrocommunity.project.project-nvim" },
   { import = "astrocommunity.motion.mini-move" },
+  { import = "astrocommunity.colorscheme.catppuccin" },
 }
