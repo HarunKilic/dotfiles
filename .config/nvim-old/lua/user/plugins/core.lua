@@ -1,25 +1,10 @@
 return {
-  -- customize alpha options
-  {
-    "goolord/alpha-nvim",
-    opts = function(_, opts)
-      -- customize the dashboard header
-      opts.section.header.val = {
-        " █████  ███████ ████████ ██████   ██████",
-        "██   ██ ██         ██    ██   ██ ██    ██",
-        "███████ ███████    ██    ██████  ██    ██",
-        "██   ██      ██    ██    ██   ██ ██    ██",
-        "██   ██ ███████    ██    ██   ██  ██████",
-        " ",
-        "    ███    ██ ██    ██ ██ ███    ███",
-        "    ████   ██ ██    ██ ██ ████  ████",
-        "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "    ██   ████   ████   ██ ██      ██",
-      }
-      return opts
-    end,
-  },
+  -- disable
+  { "bufdelete.nvim", enabled = true },
+  { "better-escape.nvim", enabled = false },
+  { "mason.nvim", opts = { PATH = "append" } },
+  { "theHamsta/nvim-dap-virtual-text", opts = {} },
+  { "which-key.nvim", opts = { window = { winblend = 10 } } },
   {
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)
