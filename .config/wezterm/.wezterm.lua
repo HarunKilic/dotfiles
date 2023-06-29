@@ -49,7 +49,7 @@ config.window_background_opacity = 0.3
 config.background = {
 	{
 		source = {
-			File = "C:/Users/haki/bg.jpg",
+			File =  wezterm.home_dir .. "\\bg.jpg",
 		},
 		hsb = {
 			-- Darken the background image by reducing it to 1/3rd
@@ -57,10 +57,10 @@ config.background = {
 
 			-- You can adjust the hue by scaling its value.
 			-- a multiplier of 1.0 leaves the value unchanged.
-			hue = 1.0,
+			hue = 0.1,
 
 			-- You can adjust the saturation also.
-			saturation = 1.0, -- brightness = 0.02,
+			saturation = 0.1, -- brightness = 0.02,
 		},
 	},
 }

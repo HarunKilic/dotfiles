@@ -1,4 +1,16 @@
 -- set vim options here (vim.<first_key>.<second_key> = value)
+require "user.utils.string-utils"
+
+if string.starts(os.getenv "OS", "Windows") then
+  vim.opt.shell = "pwsh"
+  vim.opt.shellcmdflag =
+  "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
+  vim.opt.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
+  vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+  vim.opt.shellquote = ""
+  vim.opt.shellxquote = ""
+end
+
 return {
   opt = {
     -- set to true or false etc.
@@ -7,13 +19,6 @@ return {
     spell = false,         -- sets vim.opt.spell
     signcolumn = "auto",   -- sets vim.opt.signcolumn to auto
     wrap = false,          -- sets vim.opt.wrap
-    shell = "pwsh",
-    shellcmdflag =
-    "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
-    shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
-    shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
-    shellquote = "",
-    shellxquote = "",
   },
   g = {
     mapleader = " ",                 -- sets vim.g.mapleader
