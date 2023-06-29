@@ -1,40 +1,33 @@
 -- set vim options here (vim.<first_key>.<second_key> = value)
 
--- If shell is powershell
-if vim.fn.executable "pwsh" == 1 then
-  vim.opt.shell = "pwsh"
-  vim.opt.shellcmdflag =
-  "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
-  vim.opt.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
-  vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
-  vim.opt.shellquote = ""
-  vim.opt.shellxquote = ""
-end
-
-if vim.g.neovide then
-  vim.g.neovide_transparency = 0.85
-  vim.g.neovide_cursor_vfx_mode = "railgun"
-  vim.g.transparency = 0.85
-end
-
 return {
   opt = {
     -- set to true or false etc.
     relativenumber = true, -- sets vim.opt.relativenumber
-    number = true,         -- sets vim.opt.number
-    spell = false,         -- sets vim.opt.spell
-    signcolumn = "auto",   -- sets vim.opt.signcolumn to auto
-    wrap = false,          -- sets vim.opt.wrap
+    number = true, -- sets vim.opt.number
+    spell = false, -- sets vim.opt.spell
+    signcolumn = "auto", -- sets vim.opt.signcolumn to auto
+    wrap = false, -- sets vim.opt.wrap
+    timeoutlen = 250,
+    ruler = false,
+    incsearch = true,
+    completeopt = "menuone,noinsert,noselect",
+    formatoptions = "qj11",
+    splitkeep = "screen",
+    pumblend = 10,
+    winblend = 10,
+    listchars = "extends:…,precedes:…,nbsp:␣", -- Define which helper symbols to show  },
+    list = true,
   },
   g = {
-    mapleader = " ",                 -- sets vim.g.mapleader
-    autoformat_enabled = true,       -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
-    cmp_enabled = true,              -- enable completion at start
-    autopairs_enabled = true,        -- enable autopairs at start
-    diagnostics_mode = 3,            -- set the visibility of diagnostics in the UI (0=off, 1=only show in status line, 2=virtual text off, 3=all on)
-    icons_enabled = true,            -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
+    mapleader = " ", -- sets vim.g.mapleader
+    autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
+    cmp_enabled = true, -- enable completion at start
+    autopairs_enabled = true, -- enable autopairs at start
+    diagnostics_mode = 3, -- set the visibility of diagnostics in the UI (0=off, 1=only show in status line, 2=virtual text off, 3=all on)
+    icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
     ui_notifications_enabled = true, -- disable notifications when toggling UI elements
-    resession_enabled = true,        -- enable experimental resession.nvim session management (will be default in AstroNvim v4)
+    resession_enabled = true, -- enable experimental resession.nvim session management (will be default in AstroNvim v4)
   },
 }
 -- If you need more control, you can use the function()...end notation
