@@ -1,7 +1,7 @@
 -- set vim options here (vim.<first_key>.<second_key> = value)
-require "user.utils.string-utils"
 
-if string.starts(os.getenv "OS", "Windows") then
+-- If shell is powershell
+if vim.fn.executable "pwsh" == 1 then
   vim.opt.shell = "pwsh"
   vim.opt.shellcmdflag =
   "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
@@ -9,6 +9,12 @@ if string.starts(os.getenv "OS", "Windows") then
   vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
   vim.opt.shellquote = ""
   vim.opt.shellxquote = ""
+end
+
+if vim.g.neovide then
+  vim.g.neovide_transparency = 0.85
+  vim.g.neovide_cursor_vfx_mode = "railgun"
+  vim.g.transparency = 0.85
 end
 
 return {
