@@ -40,3 +40,11 @@ ln -s ~/Documents/GitHub/dotfiles/.config/nvim ~/.config/nvim
 
 ```
 
+##### Wezterm
+
+Copy `bg.jpg` into root user folder
+
+```bash
+# Windows
+mklink "%USERPROFILE%/.wezterm.lua" "%USERPROFILE%/Documents/Github/dotfiles/.config/wezterm/.wezterm.lua"
+```
