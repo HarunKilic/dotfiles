@@ -1,0 +1,155 @@
+" Space as leader
+ nnoremap <SPACE> <Nop>
+ let mapleader = " "
+
+" Plugins
+set surround                   " commands: ys, cs, ds, S
+set highlightedyank
+set NERDTree                   " commands: <leader>ft, <leader>fT, <C-n>(file), <C-k>(folder)
+set multiple-cursors           " commands: <A-n>, <A-x>, <A-p>, g<A-n>
+set commentary                 " gcc, gc{motion}
+set easymotion                 " <ll>f{char}, <ll>w, <ll>b
+set textobj-indent             " additional text objects: ai, ii, aI, iI
+set textobj-entire             " additional text objects: ae, ie
+set argtextobj                 " <cia>, <daa>, <via>
+set ReplaceWithRegister        " commands: gr, grr ex:griw
+set exchange                   " commands: cx, cxx, X, cxc
+set matchit                    " %, g%, [%, a%
+
+" Plugins Settings
+let g:highlightedyank_highlight_duration = "1000"
+let g:highlightedyank_highlight_color = "rgba(57, 197, 187, 155)"
+
+" Vim Settings
+set scrolloff=5
+set history=1000
+set showmode
+set incsearch
+"set tabstop=2
+"set shiftwidth=2
+"set softtabstop=2
+"set expandtab
+"set smartindent
+"set autoindent
+set hlsearch
+set ignorecase
+set smartcase
+set number relativenumber
+set clipboard=unnamed,ideaput
+
+" Idea Settings
+set ideajoin
+set showmode
+set showcmd
+set wrapscan
+set ideamarks
+
+" Use Vim handler in normal mode and IDE handler in insert and visual mode
+sethandler <C-A> n:vim i-x:ide
+sethandler <C-C> n:vim i-x:ide
+" sethandler <C-F> n:vim i-x:ide
+sethandler <C-X> n:vim i-x:ide
+sethandler <C-J> n:vim i-x:ide
+
+" Search action
+noremap <Leader>sc :nohlsearch<CR>
+noremap <Leader>sf :action Find<CR>
+noremap <Leader>sr :action Replace<CR>
+noremap <Leader>sF :action FindInPath<CR>
+noremap <Leader>sR :action ReplaceInPath<CR>
+
+" File action
+nnoremap <Leader>fr :action RecentFiles<CR>
+nnoremap <Leader>fb :action Switcher<CR>
+nnoremap <Leader>fl :action RecentLocations<CR>
+nnoremap <Leader>ff :action GotoFile<CR>
+nnoremap <Leader>fc :action GotoClass<CR>
+nnoremap <Leader>fs :action GotoSymbol<CR>
+nnoremap <Leader>fa :action GotoAction<CR>
+nnoremap <Leader>fd :action GotoDatabaseObject<CR>
+nnoremap <C-S-p> :action GotoAction<CR>
+nnoremap <C-p> :action GotoFile<CR>
+nnoremap <Leader>ft :NERDTree<CR>
+nnoremap <Leader>fT :NERDTreeFind<CR>
+
+" Easymotion
+"map s <Plug>(easymotion-s2)
+"nmap <Leader>dj d<Plug>(easymotion-j)
+"nmap <Leader>dk d<Plug>(easymotion-k)
+"nmap <Leader>yj y<Plug>(easymotion-j)
+"nmap <Leader>yk y<Plug>(easymotion-k)
+"nmap <Leader>vj V<Plug>(easymotion-j)
+"nmap <Leader>vk V<Plug>(easymotion-k)
+
+" Navigation action
+nnoremap S :action Back<CR>
+nnoremap D :action Forward<CR>
+nnoremap ga `.
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gb :action GotoTypeDeclaration<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gs :action GotoSuperMethod<CR>
+nnoremap gx :action JumpToLastChange<CR>
+nnoremap gX :action JumpToNextChange<CR>
+nnoremap ge :action GotoNextError<CR>
+nnoremap gE :action GotoPreviousError<CR>
+nnoremap gl :action ShowErrorDescription<CR>
+nnoremap gm :action MethodDown<CR>
+nnoremap gM :action MethodUp<CR>
+
+" Tab action
+nnoremap <C-tab> gt
+nnoremap <C-S-tab> gT
+nnoremap tr :action MoveTabRight<CR>
+nnoremap td :action MoveTabDown<CR>
+nnoremap tm :action MoveEditorToOppositeTabGroup<CR>
+nnoremap tt :action ReopenClosedTab<CR>
+nnoremap to :action OpenEditorInOppositeTabGroup<CR>
+nnoremap tc :action CloseContent<CR>
+nnoremap tC :action CloseAllEditorsButActive<CR>
+
+" Window action
+nnoremap <Leader>wc :action ActivateCommitToolWindow<CR>
+nnoremap <Leader>wd :action ActivateDebugToolWindow<CR>
+nnoremap <Leader>wr :action ActivateRunToolWindow<CR>
+nnoremap <Leader>wg :action ActivateVersionControlWindow<CR>
+nnoremap <Leader>wt :action ActivateTerminalToolWindow<CR>
+nnoremap <A-h> :action StretchSplitToLeft<CR>
+nnoremap <A-j> :action StretchSplitToBottom<CR>
+nnoremap <A-k> :action StretchSplitToTop<CR>
+nnoremap <A-l> :action StretchSplitToRight<CR>
+cmap term action ActivateTerminalToolWindow
+
+" Code action
+nnoremap <Leader>cu :action FindUsages<CR>
+nnoremap <Leader>cr :action RenameElement<CR>
+nnoremap <Leader>cg :action IntroduceVariable<CR>
+nnoremap <Leader>cs :action SurroundWith<CR>
+nnoremap <Leader>o :action FileStructurePopup<CR>
+nnoremap <Leader>p :action ShowErrorDescription<CR>
+nnoremap == :action ReformatCode \|action OptimizeImports<CR>
+
+" Editor
+vnoremap < <gv
+vnoremap > >gv
+xnoremap p pgvy
+nnoremap zC :action CollapseAllRegions<CR>
+nnoremap zO :action ExpandAllRegions<CR>
+nnoremap zh 50zh
+nnoremap zl 50zl
+nnoremap zn :action ToggleDistractionFreeMode<CR>
+nnoremap zm :action MaximizeEditorInSplit<CR>
+
+" Ctrl
+map <C-a> ggVG"+y
+map <C-l> :noh<CR>
+nmap <C-n> <Action>(NewFile)
+nmap <C-k> <Action>(NewDir)
+    sethandler <c-h> a:vim
+    sethandler <c-l> a:vim
+    sethandler <c-j> a:vim
+    sethandler <c-k> a:vim
+    nnoremap <c-h> <c-w>h
+    nnoremap <c-l> <c-w>l
+    nnoremap <c-j> <c-w>j
+    nnoremap <c-k> <c-w>k

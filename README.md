@@ -8,6 +8,12 @@ Clone the repository:
 git clone https://github.com/HarunKilic/dotfiles.git
 ```
 
+##### IdeaVim
+
+```bash
+mklink /D "%USERPROFILE%/.ideavimrc" "%USERPROFILE%/Documents/Github/dotfiles/.ideavimrc"
+```
+
 ##### Alacritty
 
 ```bash
